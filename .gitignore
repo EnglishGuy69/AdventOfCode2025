@@ -1,5 +1,5 @@
 data.txt
 test.txt
 answer.txt
-*.txt
 .idea
+.DS_Store
