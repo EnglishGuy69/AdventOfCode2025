@@ -64,7 +64,8 @@ class Cafeteria:
 
         self._sort_ranges()
 
-        for i in range(len(self.fresh_ranges)-2, -1, -1):
+
+        for i in reversed(range(0, len(self.fresh_ranges)-1)):  # Reminder, use -1 as end stop to ensure 0 is included
             (r0_min, r0_max) = self.fresh_ranges[i]
             (r1_min, r1_max) = self.fresh_ranges[i+1]
 
