@@ -1,3 +1,14 @@
+'''
+    Author: Guy Pickering
+    Date: Dec 5, 2025
+
+    Part 1:
+    Find the fresh ingredients based on those ingredients that are within the ranges provided.
+
+    Part 2:
+    Find the total number of fresh ingredients based on just the ranges.
+'''
+
 from bisect import bisect
 
 class Cafeteria:
@@ -25,7 +36,7 @@ class Cafeteria:
         Args:
             filepath: The path to the data file to be loaded
 
-        Returns:
+        Returns: n/a
 
         '''
         load_state='RANGES'
@@ -37,8 +48,10 @@ class Cafeteria:
                     else:
                         (range_start, range_end) = tuple(line.strip().split('-'))
                         self.fresh_ranges.append((int(range_start), int(range_end)))
-                else:
+                elif load_state == 'FOOD':
                     self.food.append(int(line.strip()))
+                else:
+                    raise NotImplementedError(f'Unknown load state {load_state}')
 
     def _sort_ranges(self) -> None:
         '''
@@ -64,8 +77,7 @@ class Cafeteria:
 
         self._sort_ranges()
 
-
-        for i in reversed(range(0, len(self.fresh_ranges)-1)):  # Reminder, use -1 as end stop to ensure 0 is included
+        for i in reversed(range(0, len(self.fresh_ranges)-1)):
             (r0_min, r0_max) = self.fresh_ranges[i]
             (r1_min, r1_max) = self.fresh_ranges[i+1]
 
@@ -79,7 +91,7 @@ class Cafeteria:
         '''
         This function assumes that the ranges are sorted and non-overlapping. The bisect() function will find the
         position just after the range that starts below the food ID. We then check whether that range expands upwards
-        to include the id.
+        to include the id. If the bisect returns 0, it means the food ID is below all ranges.
 
         Args:
             n: the ID for the food to check for freshness

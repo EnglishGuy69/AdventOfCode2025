@@ -1,3 +1,14 @@
+f'''
+    Author: Guy Pickering
+    Date: Dec 3, 2025
+
+    Part 1:
+    Find the largest 'joltage' using 2 digits - the largest 2 digits of each number in the list - left to right.
+    
+    Part 2:
+    Find the largest 'joltage' using 12 digits - the largest 12 digits of each number in the list - left to right.
+'''
+
 from typing import List, Tuple
 
 class Lobby:
@@ -65,8 +76,8 @@ class Lobby:
 
 if __name__ == '__main__':
     lobby_test = Lobby('test.txt')
-#    test_answer_1 = lobby_test.answer1()
-    test_answer_2 = lobby_test.answer2()
+    print(f'Test Answer 1: {lobby_test.answer1()}')
+    print(f'Test Answer 2: {lobby_test.answer2()}')
 
 
     lobby = Lobby('data.txt')

@@ -1,3 +1,13 @@
+f'''
+    Author: Guy Pickering
+    Date: Dec 2, 2025
+
+    Part 1:
+    Count the number of invalid IDs in the ranges that have repeating patterns, e.g. 11, 22, 123123, etc.
+
+    Part 2:
+    Count the number of invalid IDs in the ranges that have 2 or more repeating patters, e.g. 121212.
+'''
 from typing import Set, List, Optional
 
 class GiftShop:

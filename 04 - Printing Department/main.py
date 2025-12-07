@@ -1,3 +1,14 @@
+'''
+    Author: Guy Pickering
+    Date: Dec 4, 2025
+
+    Part 1:
+    Find how manu paper rolls that have <4 surrounding paper rolls (outer positions of a 3x3 grid) can be removed.
+
+    Part 2:
+    If we continue tyo remove paper rolls until we can remove no more, how many are lect?
+'''
+
 
 class PrintingDepartmentMap:
     PAPER_ROLL='@'
@@ -58,7 +69,7 @@ class PrintingDepartmentMap:
             for y in range(0, self.height):
                 for x in range(0, self.width):
                     if self._can_move_paper_roll(x,y):
-                        # Replace character at [x,y]
+                        # Replace character at [x,y] - i.e. remove paper roll
                         self.map[y] = self.map[y][:x] + PrintingDepartmentMap.SPACE + self.map[y][x+1:]
 
                         cnt += 1

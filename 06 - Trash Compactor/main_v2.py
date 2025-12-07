@@ -1,6 +1,20 @@
+'''
+    Author: Guy Pickering
+    Date: Dec 6, 2025
+
+    Part 1:
+    Read the numbers above each operator and then calculate the sum or product of those numbers and add them up.
+
+    Part 2:
+    Read the numbers vertically above each operator and then calculate the sum or product of those numbers and add them
+    up.
+'''
+
+
 import math
 from typing import List
 import re
+from io import TextIOWrapper
 
 class HomeworkQuestion:
     def __init__(self, operator: str):
@@ -29,7 +43,7 @@ class TrashCompactor:
         with open(filepath, 'r') as f:
             self._load(f)
 
-    def _load(self, f):
+    def _load(self, f: TextIOWrapper):
         lines = list(f.readlines())
         lines = [l.strip('\n') for l in lines]
 
@@ -37,8 +51,10 @@ class TrashCompactor:
         for operator in operators:
             self.questions.append(HomeworkQuestion(operator))
 
+        # Call abstract function to load the data into self.questions depending on the part 1 or part 2
         self._extract_data(lines[:-1])
 
+    # Abstract function - override in Part1 and Part2 classes
     def _extract_data(self, lines: List[str]):
         raise NotImplementedError('Override in derived class')
 
