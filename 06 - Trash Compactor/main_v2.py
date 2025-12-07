@@ -21,6 +21,7 @@ class HomeworkQuestion:
     def __str__(self):
         return self.operator + '[' + ','.join([str(n) for n in self.numbers]) + ']'
 
+
 class TrashCompactor:
     def __init__(self, filepath: str):
         self.questions: List[HomeworkQuestion] = []
